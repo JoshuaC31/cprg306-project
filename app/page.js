@@ -1,6 +1,6 @@
 "use client";
 
-import CityFetcher from "./get-city";
+import GetCity from "./get-city";
 import { useState } from "react";
 
 export default function Home(){
@@ -12,7 +12,7 @@ export default function Home(){
           <h1 className="text-8xl font-bold font-sans text-white mb-4 tracking-wide">Weather App</h1>
         </div>
         <div>
-          <CityFetcher></CityFetcher>
+          <GetCity/>
         </div>
       </div>
       </main>
