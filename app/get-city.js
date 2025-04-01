@@ -5,7 +5,7 @@ export default function GetCity() {
   const [city, setCity] = useState("");
   const [cityData, setCityData] = useState([]);
 
-  const APIKey = "9204e57e6af788bebd4da33dcbf04d06";
+  const APIKey = process.env.NEXT_PUBLIC_API_KEY;
 
   const fetchCityData = async () => {
     try {
