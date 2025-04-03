@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 
-export default function () {
+export default function GetWeather() {
 
 const [weatherDate, setWeatherData] = useState([]);
 

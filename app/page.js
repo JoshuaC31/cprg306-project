@@ -2,8 +2,15 @@
 
 import GetCity from "./get-city";
 import { useState } from "react";
+import GetWeather from "./get-weather";
 
 export default function Home(){
+
+  const [cityData, setCityData] = useState([]);
+
+  const manageCityData = (data) => {
+    setCityData(data[0]);
+  }
   return(
     <div className="bg-[url('https://wallpapercave.com/wp/wp7714748.jpg')] bg-bannerImg bg-repeat relative h-screen bg-cover bg-center">
       <main>
@@ -12,7 +19,7 @@ export default function Home(){
           <h1 className="text-8xl font-bold font-sans text-white mb-4 tracking-wide">Weather App</h1>
         </div>
         <div>
-          <GetCity/>
+          <GetCity onSearch={manageCityData}/>
         </div>
       </div>
       </main>

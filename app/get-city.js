@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
 
-export default function GetCity() {
+export default function GetCity({ onSearch}) {
   const [city, setCity] = useState("");
-  const [cityData, setCityData] = useState([]);
 
   const APIKey = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -12,22 +11,22 @@ export default function GetCity() {
         const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}`);
         const data = await response.json();
         console.log(data);
-        setCityData(data);
+        onSearch(data);
         return data;
     }catch (error) {
         console.error("ERROR! cannot fetch city data", error);
-        return [];
+        onSearch([]);
     };
   };
 
   const handleFetch = () => {
-    fetchCityData();
+    if (city) fetchCityData();
   };
 
   return (
     <div>
       <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter a City"/>
-      <button onClick={handleFetch}>Fetch Data</button>
+      <button onClick={handleFetch}>Search Weather</button>
     </div>
   );
 }
