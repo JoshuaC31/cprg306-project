@@ -2,13 +2,12 @@
 import { useState } from "react";
 
 
-export default function GetWeather() {
+export default function GetWeather(cityData) {
 
-const [weatherDate, setWeatherData] = useState([]);
-
+const [weatherData, setWeatherData] = useState([]);
 const APIKey = process.env.NEXT_PUBLIC_API_KEY;
 
-const fetchWeatherData = async () => {
+const fetchWeatherData = async (lat, lon) => {
     try {
         const response = await fetch (`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${APIKey}`);
         const data = await response.json();
@@ -23,7 +22,7 @@ const fetchWeatherData = async () => {
 
 return (
     <div>
-        <h1>hello</h1>
+        <h1></h1>
     </div>
 );
 
