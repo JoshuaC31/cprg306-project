@@ -1,15 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
-export default function GetWeather(cityData) {
+export default function GetWeather( {lat , lon}) {
 
 const [weatherData, setWeatherData] = useState([]);
-const APIKey = process.env.NEXT_PUBLIC_API_KEY;
+const APIKey = process.env.NEXT_PUBLIC_API_KEY_WEATHER;
 
-const fetchWeatherData = async (lat, lon) => {
+const fetchWeatherData = async (lati, long) => {
     try {
-        const response = await fetch (`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${APIKey}`);
+        console.log("fetching weather", lati, long)
+        const response = await fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=${APIKey}`);
         const data = await response.json();
         console.log(data);
         setWeatherData(data);
@@ -20,9 +21,22 @@ const fetchWeatherData = async (lat, lon) => {
     };
 };
 
+useEffect (() => {
+    {
+        fetchWeatherData(lat, lon);
+    };
+}, [lat, lon]);
+
 return (
     <div>
-        <h1></h1>
+      {weatherData ? (
+        <>
+          <h1>Weather Data</h1>
+            <p>Temperature: {weatherData.current?.temp ? `${weatherData.current.temp}` : "N/A"}</p>
+        </>
+      ) : (
+        <p>No weather data available</p>
+      )}
     </div>
 );
 

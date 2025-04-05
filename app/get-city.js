@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function GetCity({ onSearch}) {
+export default function GetCity({ onSearch, onCitySelect}) {
   const [city, setCity] = useState("");
   const [results, setResults] =useState([]);
 
@@ -34,7 +34,7 @@ export default function GetCity({ onSearch}) {
       </div>
       <div>
         {results.map((cityData, id) => (
-          <div key={id} className="bg-black/40 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-xl">
+          <div key={id} className="bg-black/40 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-xl" onClick={() => onCitySelect(cityData.lat , cityData.lon)}>
             <h3>{cityData.name}</h3>
             <p className="text-white/80 mb-6">Country: {cityData.country}</p>
             <p className="text-white/80 mb-6">State: {cityData.state}</p>

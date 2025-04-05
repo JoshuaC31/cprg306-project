@@ -7,10 +7,19 @@ import GetWeather from "./get-weather";
 export default function Home(){
 
   const [cityData, setCityData] = useState([]);
+  const [selectedLat, setSelectedLat] = useState("");
+  const [selectedLon, setSelectedLon] = useState("");
 
   const manageCityData = (data) => {
-    setCityData(data[0]);
+    setCityData(data);
   }
+
+  const manageCitySelect = (lat, lon) => {
+    console.log({lat,lon});
+    setSelectedLat(lat);
+    setSelectedLon(lon);
+  };
+
   return(
     <div className="bg-[url('https://wallpapercave.com/wp/wp7714748.jpg')] bg-bannerImg bg-repeat relative h-screen bg-cover bg-center">
       <main>
@@ -19,8 +28,13 @@ export default function Home(){
           <h1 className="text-8xl font-bold font-sans text-white mb-4 tracking-wide">Weather App</h1>
         </div>
         <div>
-          <GetCity onSearch={manageCityData}/>
+          <GetCity onSearch={manageCityData} onCitySelect={manageCitySelect}/>
         </div>
+        { selectedLat && selectedLon && (
+          <div>
+            <GetWeather lat={selectedLat} lon={selectedLon}/>
+          </div>
+        )}
       </div>
       </main>
     </div>
