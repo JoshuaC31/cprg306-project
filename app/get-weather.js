@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import WeatherInfoCard from "./weather-info-card";
 
 
 export default function GetWeather( {lat , lon}) {
@@ -31,8 +32,7 @@ return (
     <div>
       {weatherData ? (
         <>
-          <h1>Weather Data</h1>
-            <p>Temperature: {weatherData.current?.temp ? `${weatherData.current.temp}` : "N/A"}</p>
+          <WeatherInfoCard weatherData={weatherData}/>
         </>
       ) : (
         <p>No weather data available</p>

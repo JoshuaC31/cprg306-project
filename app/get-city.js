@@ -28,18 +28,16 @@ export default function GetCity({ onSearch, onCitySelect}) {
 
   return (
     <div>
-      <div className="bg-black/40 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-xl justify-items-center">
-        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter a City" className="text-2xl font-bold text-white mb-4"/>
-        <button onClick={handleFetch} className="px-4 py-2 bg-white/10 hover:bg-white/20 transition-colors rounded-md text-white text-sm">Search Weather</button>
+      <div className="">
+        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter a City" className=""/>
+        <button onClick={handleFetch} className="">Search Weather</button>
       </div>
       <div>
         {results.map((cityData, id) => (
-          <div key={id} className="bg-black/40 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-xl" onClick={() => onCitySelect(cityData.lat , cityData.lon)}>
+          <div key={id} className="" onClick={() => onCitySelect(cityData.lat , cityData.lon)}>
             <h3>{cityData.name}</h3>
-            <p className="text-white/80 mb-6">Country: {cityData.country}</p>
-            <p className="text-white/80 mb-6">State: {cityData.state}</p>
-            <p className="text-white/80 mb-6">Latitude: {cityData.lat}</p>
-            <p className="text-white/80 mb-6">Longitude: {cityData.lon}</p>
+            <p className="">Country: {cityData.country}</p>
+            <p className="">State: {cityData.state}</p>
           </div>
         ))}
       </div>

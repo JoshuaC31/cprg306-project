@@ -21,11 +21,11 @@ export default function Home(){
   };
 
   return(
-    <div className="bg-[url('https://wallpapercave.com/wp/wp7714748.jpg')] bg-bannerImg bg-repeat relative h-screen bg-cover bg-center">
+    <div className="">
       <main>
-      <div className="relative z-10 w-full max-w-md rounded-xl overflow-hidden">
-        <div className="bg-black/35 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-xl">
-          <h1 className="text-8xl font-bold font-sans text-white mb-4 tracking-wide">Weather App</h1>
+      <div className="">
+        <div className="">
+          <h1 className="">Weather App</h1>
         </div>
         <div>
           <GetCity onSearch={manageCityData} onCitySelect={manageCitySelect}/>
