@@ -18,15 +18,17 @@ export default function WeatherInfoCard({ weatherData }) {
   };
 
   return (
-    <div className="">
-      <h2>{data.location} ({data.country})</h2>
-      <p><strong>Weather:</strong> {data.description}</p>
-      <p><strong>Temperature:</strong> {data.temp}°C</p>
-      <p><strong>Feels Like:</strong> {data.feelsLike}°C</p>
-      <p><strong>Humidity:</strong> {data.humidity}%</p>
-      <p><strong>Wind Speed:</strong> {data.windSpeed} m/s</p>
-      <p><strong>Rain (1h):</strong> {data.rain} mm</p>
-      <p><strong>Cloud Cover:</strong> {data.clouds}%</p>
+    <div className="flex items-center flex-row flex-wrap gap-16 w-full p-12">
+      <div className="flex-shrink-0 w-64 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4">
+        <h2>{data.location} ({data.country})</h2>
+        <p><strong>Weather:</strong> {data.description}</p>
+        <p><strong>Temperature:</strong> {data.temp}°C</p>
+        <p><strong>Feels Like:</strong> {data.feelsLike}°C</p>
+        <p><strong>Humidity:</strong> {data.humidity}%</p>
+        <p><strong>Wind Speed:</strong> {data.windSpeed} m/s</p>
+        <p><strong>Rain (1h):</strong> {data.rain} mm</p>
+        <p><strong>Cloud Cover:</strong> {data.clouds}%</p>
+      </div>
     </div>
   );
 }

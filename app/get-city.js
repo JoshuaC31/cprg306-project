@@ -27,17 +27,17 @@ export default function GetCity({ onSearch, onCitySelect}) {
   };
 
   return (
-    <div>
-      <div className="">
-        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter a City" className=""/>
-        <button onClick={handleFetch} className="">Search Weather</button>
+    <div className="flex flex-col items-center w-full p-12">
+      <div className="flex justify-center">
+        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Enter a City" className="max-w-3xl bg-transparent border-2 rounded-md placeholder-white placeholder:text-center text-sm text-white py-1 px-3 mr-10 "/>
+        <button onClick={handleFetch} className="bg-gray-950 text-white border border-gray-400 border-b-4 font-medium overflow-hidden relative px-3 py-1 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">Search City</button>
       </div>
-      <div>
+      <div className="flex items-center flex-row flex-wrap gap-16 w-full p-12">
         {results.map((cityData, id) => (
-          <div key={id} className="" onClick={() => onCitySelect(cityData.lat , cityData.lon)}>
-            <h3>{cityData.name}</h3>
-            <p className="">Country: {cityData.country}</p>
-            <p className="">State: {cityData.state}</p>
+          <div key={id} className="flex-shrink-0 w-64 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-4 cursor-pointer hover:bg-gray-800 transition-colors duration-200 hover:border-gray-500" onClick={() => onCitySelect(cityData.lat , cityData.lon)}>
+            <h3 className="text-white text-lg font-medium mb-2">{cityData.name}</h3>
+            <p className="text-gray-300 text-sm">Country: {cityData.country}</p>
+            <p className="text-gray-300 text-sm">State: {cityData.state}</p>
           </div>
         ))}
       </div>

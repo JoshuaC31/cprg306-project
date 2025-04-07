@@ -21,22 +21,24 @@ export default function Home(){
   };
 
   return(
-    <div className="">
-      <main>
-      <div className="">
-        <div className="">
-          <h1 className="">Weather App</h1>
+    <div className="bg-cover bg-gradient-to-l from-gray-950 to-gray-600 min-h-screen"> {/*bg style*/}
+    {/*dont know yet might need it*/}
+      <div className="flex flex-col">
+         {/*name/title style*/}
+        <div className="flex justify-end w-full p-12">
+          <h1 className="">Weather by Josh</h1>
         </div>
-        <div>
+        {/*Search city style*/}
+        <div className="flex justify-center w-full">
           <GetCity onSearch={manageCityData} onCitySelect={manageCitySelect}/>
         </div>
+        {/* Search Weather style */}
         { selectedLat && selectedLon && (
-          <div>
-            <GetWeather lat={selectedLat} lon={selectedLon}/>
-          </div>
+        <div className="flex justify-center w-full">
+          <GetWeather lat={selectedLat} lon={selectedLon}/>
+        </div>
         )}
       </div>
-      </main>
     </div>
   )
 }
