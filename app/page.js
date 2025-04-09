@@ -26,7 +26,7 @@ export default function Home(){
       <div className="flex flex-col">
          {/*name/title style*/}
         <div className="flex justify-end w-full p-12">
-          <h1 className="">Weather by Josh</h1>
+          <h1 className="">Weather App</h1>
         </div>
         {/*Search city style*/}
         <div className="flex justify-center w-full">

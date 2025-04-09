@@ -23,9 +23,7 @@ const fetchWeatherData = async (lati, long) => {
 };
 
 useEffect (() => {
-    {
-        fetchWeatherData(lat, lon);
-    };
+    fetchWeatherData(lat, lon);
 }, [lat, lon]);
 
 return (
